@@ -6,7 +6,7 @@ Some simple Python 3 scripts to help you into importing your existing Spotify li
 
 1. Searches for artist in addtional to title in iTunes. Corrects issue where more than 25 results exist for title and artist desired isn't in top 25
 
-2. instead of exact match of artist and title used SequenceMatcher to match with 90% ratio. Higher risk for incorrect match, but eliminates a lot of skips from small spacing, formatting, spelling issues.
+2. Instead of exact match of artist and title used SequenceMatcher to match with 90% ratio. Higher risk for incorrect match, but eliminates a lot of skips from small spacing, formatting, spelling issues.
 
 3. Updated to allow for Rdio csv (changed row indexes in line 38)
 
@@ -18,7 +18,7 @@ Some simple Python 3 scripts to help you into importing your existing Spotify li
 The first step is getting the songs you want to import into Apple Music into a CSV file. The simplest way to do this is using [Exportify](https://rawgit.com/watsonbox/exportify/master/exportify.html).  
 If you want to export you whole Spotify library, simply create a new playlist called *All* and drag your whole library into it using the Spotify desktop app. You can then export the playlist *All* using *Exportify*. Save the resulting file as *export.csv* in the same directory as the directory you cloned this repo into. Open csv file and delete column A.
 
-### 1(a). Export the Spotify songs to an CSV File
+### 1(b). Export the Rdio songs to an CSV File
 Export Rdio playlist or library with RdioEnhancer (https://chrome.google.com/webstore/detail/rdio-enhancer/hmaalfaappddkggilhahaebfhdmmmngf?hl=en) 
 Save the resulting file as *export.csv* in the same directory as the directory you cloned this repo into.
 I found that it did some weird unicode formatting on some songs. To fix, I used "Import" in excel and selected Unicode 16.0 UTF-8 as input format then re-saved that as export.csv.
