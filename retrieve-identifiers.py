@@ -9,7 +9,8 @@ def retrieve_itunes_identifier(title, artist):
         "X-Apple-Store-Front" : "143446-10,32 ab:rSwnYxS0 t:music2",
         "X-Apple-Tz" : "7200" 
     }
-    url = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?clientApplication=MusicPlayer&term=" + urllib.parse.quote(title)
+    url = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/search?clientApplication=MusicPlayer&term=" + urllib.parse.quote(artist) + "%20" + urllib.parse.quote(title)
+
     request = urllib.request.Request(url, None, headers)
 
     try:
@@ -17,7 +18,7 @@ def retrieve_itunes_identifier(title, artist):
         data = json.loads(response.readall().decode('utf-8'))
         
         for result in data["storePlatformData"]["lockup"]["results"].values():
-            if result["kind"] == "song" and result["name"].lower() == title.lower() and (result["artistName"].lower() in artist.lower() or artist.lower() in result["artistName"].lower()):
+          if result["kind"] == "song" and similar(result["name"].lower(),title.lower()) > 0.9 and similar(result["artistName"].lower(),artist.lower())> 0.9 :
                 return result["id"]
     except:
         return None
@@ -26,7 +27,7 @@ def retrieve_itunes_identifier(title, artist):
 itunes_identifiers = []
 
 
-with open('spotify.csv') as playlist_file:
+with open('export.csv') as playlist_file:
     playlist_reader = csv.reader(playlist_file)
     next(playlist_reader)
 
