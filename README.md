@@ -3,9 +3,13 @@ Some simple Python 3 scripts to help you into importing your existing Spotify li
 **Work in progress !**
 
 [CHANGES FROM ORIGINAL]
+
 1. Searches for artist in addtional to title in iTunes. Corrects issue where more than 25 results exist for title and artist desired isn't in top 25
+
 2. instead of exact match of artist and title used SequenceMatcher to match with 90% ratio. Higher risk for incorrect match, but eliminates a lot of skips from small spacing, formatting, spelling issues.
+
 3. Updated to allow for Rdio csv (changed row indexes in line 38)
+
 4. Match success for me: original script 518/783. This version 661/783. YMMV.
 
 ## Usage
